@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#009688</color>
-    <color name="colorPrimaryDark">#00796B</color>
-    <color name="colorAccent">#536DFE</color>
+    <!-- ألوان أساسية -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="light_gray">#F2F2F2</color>
+
+    <!-- ألوان إضافية للتصميم الجديد -->
+    <color name="teal_700">#00796B</color>
+    <color name="purple_500">#9C27B0</color>
 </resources>
