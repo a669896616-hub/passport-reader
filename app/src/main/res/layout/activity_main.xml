@@ -1,109 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
+    android:background="@color/white">
 
-    <LinearLayout
-        android:id="@+id/loading_layout"
-        android:layout_width="wrap_content"
+    <!-- عنوان التطبيق -->
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:text="Passport Reader"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="16dp"/>
 
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
+    <!-- زر قراءة جواز السفر -->
+    <Button
+        android:id="@+id/btnReadPassport"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="قراءة الجواز"
+        android:textSize="18sp"
+        android:backgroundTint="@color/teal_700"
+        android:textColor="@color/white"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/appTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <!-- زر عرض البيانات -->
+    <Button
+        android:id="@+id/btnShowData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="عرض البيانات"
+        android:textSize="18sp"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@color/white"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnReadPassport"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <!-- زر الإعدادات -->
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="الإعدادات"
+        android:textSize="18sp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnShowData"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <!-- مساحة عرض النتائج -->
+    <ScrollView
+        android:id="@+id/resultScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/light_gray"
+        app:layout_constraintTop_toBottomOf="@id/btnSettings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="16dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/info_loading" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:id="@+id/main_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
+            android:id="@+id/txtResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                android:text="@string/info_scan_passport" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_passport_number_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_passport_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textCapCharacters"
-                    android:hint="@string/input_passport_number" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_expiration_date_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_expiration_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/input_expiration_date"
-                    android:inputType="date"
-                    android:focusableInTouchMode="false" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_date_of_birth_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_marginBottom="@dimen/activity_vertical_margin">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_date_of_birth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/input_date_of_birth"
-                    android:inputType="date"
-                    android:focusableInTouchMode="false" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-
+            android:text="النتائج ستظهر هنا..."
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
     </ScrollView>
 
-    <FrameLayout
-        android:id="@+id/bottom_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom" />
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
