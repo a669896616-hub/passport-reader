@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- ألوان أساسية -->
+    <!-- الألوان الأساسية للتطبيق -->
+    <color name="colorPrimary">#2196F3</color>        <!-- أزرق فاتح -->
+    <color name="colorPrimaryDark">#1976D2</color>    <!-- أزرق داكن -->
+    <color name="colorAccent">#FF4081</color>         <!-- وردي للتأكيد -->
+
+    <!-- الألوان الأخرى التي أضفناها سابقاً -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="light_gray">#F2F2F2</color>
-
-    <!-- ألوان إضافية للتصميم الجديد -->
     <color name="teal_700">#00796B</color>
     <color name="purple_500">#9C27B0</color>
 </resources>
